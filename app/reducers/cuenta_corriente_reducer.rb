@@ -1,4 +1,4 @@
-class BalanceSheetReducer < Crabfarm::BaseReducer
+class CuentaCorrienteReducer < Crabfarm::BaseReducer
 
   has_array :transactions
 

@@ -1,4 +1,4 @@
-class BalanceSheet < Crabfarm::BaseNavigator
+class CuentaCorriente < Crabfarm::BaseNavigator
 
   def run
     menu = browser.frame(name:'left')
