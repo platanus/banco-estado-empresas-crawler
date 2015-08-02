@@ -22,8 +22,8 @@ describe CuentaCorrienteReducer do
     expect(reducer.transactions[3].amount).to eq(-52995)
   end
 
-  it "should set signature as null", reducing: 'cuenta_corriente' do
-    expect(reducer.transactions[0].signature).to eq(nil)
+  it "should set signature", reducing: 'cuenta_corriente' do
+    expect(reducer.transactions[0].signature).to_not eq(nil)
   end
 
   it "should get the balance", reducing: 'cuenta_corriente', live:'true' do
