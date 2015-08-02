@@ -4,6 +4,7 @@ class Transaction < Crabfarm::BaseStruct
   has_string :description
   has_field :date
   has_field :signature, default: nil
+  has_float :balance
 
   def signed_amount(negative, positive)
     negative = assert(negative).is_i default: nil, thousand_mark: '.'
