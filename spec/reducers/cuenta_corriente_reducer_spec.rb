@@ -23,7 +23,7 @@ describe CuentaCorrienteReducer do
   end
 
   it "should set signature", reducing: 'cuenta_corriente' do
-    expect(reducer.transactions[0].signature).to_not eq(nil)
+    expect(reducer.transactions[0].signature).to eq(nil)
   end
 
   it "should get the balance", reducing: 'cuenta_corriente', live:'true' do
