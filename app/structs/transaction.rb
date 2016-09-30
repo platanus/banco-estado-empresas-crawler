@@ -1,6 +1,7 @@
 class Transaction < Crabfarm::BaseStruct
 
   has_float :amount
+  has_string :document
   has_string :description
   has_field :date
   has_field :signature, default: nil

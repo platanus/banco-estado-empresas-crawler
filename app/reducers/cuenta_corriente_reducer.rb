@@ -8,13 +8,12 @@ class CuentaCorrienteReducer < Crabfarm::BaseReducer
     rows.each do |tx|
       next if tx.css('.c3').count == 0 || tx.css('.c3:first-child').text == ""
       t = Transaction.new
-      t.signature = nil #tx.css('.c3:first-child').text
+      t.document = tx.css('.c3:first-child').text
       t.description = tx.css('.c3:nth-child(2)').text
       t.amount = t.signed_amount(tx.css('.c3:nth-child(4)').text, tx.css('.c3:nth-child(5)').text)
       t.date = Date.strptime(tx.css('.c3:nth-child(6)').text, '%d/%m/%Y')
       t.balance = tx.css('.c3:nth-child(7)').text.gsub(/[^0-9]*/,"").to_i || ""
-      #t.signature = Digest::SHA1.hexdigest("#{t.description} #{t.date} #{t.amount} #{t.balance}")
-      t.signature = nil
+      t.signature = Digest::SHA1.hexdigest("#{t.document} #{t.description} #{t.date} #{t.amount} #{t.balance}")
       self.transactions.push(t)
     end
   end
